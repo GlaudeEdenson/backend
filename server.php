@@ -13,10 +13,6 @@ include './api.php';
 // Lecture et décodage des données JSON reçues
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Débogage : journaliser les données brutes et décodées
-file_put_contents("debug_log.txt", "Données brutes : " . file_get_contents("php://input") . "\n", FILE_APPEND);
-file_put_contents("debug_log.txt", "Données décodées : " . print_r($data, true) . "\n", FILE_APPEND);
-
 // Vérification des données reçues
 if (!$data) {
     echo json_encode(["success" => false, "message" => "Aucune donnée reçue ou erreur de décodage JSON."]);
